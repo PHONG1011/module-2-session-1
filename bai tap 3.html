@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Default Parameter - Tạo đối tượng người dùng</title>
+</head>
+<body>
+    <script>
+        // Hàm tạo đối tượng người dùng với default parameter
+        const createUser = (name, age = 18, role = "user") => {
+            return {
+                name: name,
+                age: age,
+                role: role
+            };
+        };
+
+        // Test
+        console.log(createUser("Dev")); // {name: "Dev", age: 18, role: "user"}
+        console.log(createUser("Nguyen Van A", 20, "Admin")); // {name: "Nguyen Van A", age: 20, role: "Admin"}
+    </script>
+</body>
+</html>
