@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý danh sách học viên ES6</title>
+</head>
+<body>
+    <script>
+        // 1. Khởi tạo danh sách học viên
+        let students = [
+            { id: 1, name: "Nguyen Van A", age: 20, email: "a@gmail.com" },
+            { id: 2, name: "Tran Thi B", age: 21, email: "b@gmail.com" },
+            { id: 3, name: "Le Van C", age: 22, email: "c@gmail.com" }
+        ];
+
+        // 2. Hiển thị danh sách học viên
+        const showStudents = () => {
+            console.log("Danh sách học viên:");
+            students.forEach(({id, name, age, email}) => {
+                console.log(`ID: ${id}, Name: ${name}, Age: ${age}, Email: ${email}`);
+            });
+        };
+
+        // 3. Thêm một học viên mới
+        const addStudent = (student) => {
+            // Kiểm tra id đã tồn tại chưa
+            if (students.some(s => s.id === student.id)) {
+                console.log("ID đã tồn tại!");
+                return;
+            }
+            students = [...students, student];
+            console.log("Đã thêm học viên mới:", student);
+        };
+
+        // 4. Xóa một học viên theo ID
+        const deleteStudent = (id) => {
+            const index = students.findIndex(s => s.id === id);
+            if (index === -1) {
+                console.log("Không tìm thấy học viên với ID:", id);
+                return;
+            }
+            students.splice(index, 1);
+            console.log("Đã xóa học viên có ID:", id);
+        };
+
+        // 5. Tìm kiếm học viên theo tên
+        const findStudentByName = (name) => {
+            const result = students.filter(s => s.name.toLowerCase().includes(name.toLowerCase()));
+            if (result.length === 0) {
+                console.log("Không tìm thấy học viên nào tên:", name);
+            } else {
+                console.log("Kết quả tìm kiếm:");
+                result.forEach(({id, name, age, email}) => {
+                    console.log(`ID: ${id}, Name: ${name}, Age: ${age}, Email: ${email}`);
+                });
+            }
+            return result;
+        };
+
+        // 6. Cập nhật thông tin học viên
+        const updateStudent = (id, newInfo) => {
+            const student = students.find(s => s.id === id);
+            if (!student) {
+                console.log("Không tìm thấy học viên với ID:", id);
+                return;
+            }
+            Object.assign(student, newInfo);
+            console.log("Đã cập nhật học viên:", student);
+        };
+
+        // --- Test các chức năng ---
+        showStudents();
+        addStudent({ id: 4, name: "Pham Thi D", age: 23, email: "d@gmail.com" });
+        showStudents();
+        deleteStudent(2);
+        showStudents();
+        findStudentByName("van");
+        updateStudent(3, { name: "Le Van C Updated", age: 25, email: "c_new@gmail.com" });
+        showStudents();
+    </script>
+</body>
+</html>
