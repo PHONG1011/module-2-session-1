@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tính chu vi diện tích hình tròn</title>
+</head>
+<body>
+    <script>
+    // đây là Hàm tính chu vi và diện tích hình tròn
+    function tinhChuViVaDienTich(r) {
+      const pi = Math.PI;
+      const chuVi = 2 * pi * r;
+      const dienTich = pi * r * r;
+      return {
+        chuVi: chuVi,
+        dienTich: dienTich
+      };
+    }
+    let banKinh = 7;
+    const ketQua = tinhChuViVaDienTich(banKinh);
+    // Làm tròn 2 chữ số thập phân khi xuất ra ta sẽ dùng toFixed(2)
+    console.log("Chu vi:", ketQua.chuVi.toFixed(2));
+    console.log("Diện tích:", ketQua.dienTich.toFixed(2));
+   </script>
+
+    
+</body>
+</html>
