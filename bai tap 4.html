@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template Literals - Gửi thư</title>
+</head>
+<body>
+    <script>
+        // Hàm hiển thị nội dung thư sử dụng template literals
+        const sendMail = (name, companyName) => {
+            return `Dear ${name}
+        thank you for purcchasing our product.We hope you enjoy it.
+        Best regards 
+        ${companyName}`;
+        };
+
+        // Test
+        console.log(sendMail("Nguyen Van A", "Rikkei Academy"));
+        /*
+        Output:
+        Dear Nguyen Van A
+        thank you for purcchasing our product.We hope you enjoy it.
+        Best regards 
+        Rikkei Academy
+        */
+    </script>
+</body>
+</html>
